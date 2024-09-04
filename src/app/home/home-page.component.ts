@@ -20,7 +20,8 @@ export class HomePageComponent {
   constructor(private tvmazeService: TvmazeApiService) { }
 
   ngOnInit(): void {
-    this.searchShows('Breaking Bad');
+    // Couldn't find a most popular shows endpoint, so I'm just searching for shows that start with 'The ' for the starting state
+    this.searchShows('The ');
   }
 
   searchShows(query: string): void {
