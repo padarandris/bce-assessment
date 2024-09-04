@@ -1,0 +1,12 @@
+
+<div class="search-bar">
+    <input type="text" placeholder="Search for shows..." [(ngModel)]="searchText" />
+    <button type="button" (click)="searchShows(searchText)" (keyup.enter)="searchShows(searchText)" >Search</button>
+  </div>
+<div class="column gap-1">
+    <div class="row wrap gap-2 space-between">
+      <app-show-card
+      *ngFor="let show of shows"
+      [show]="show"
+      ></app-show-card>
+</div>

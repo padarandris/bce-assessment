@@ -1,0 +1,10 @@
+<div class="column gap-1 wrapper show-card" (click)="navigateToShowDetailsPage(show.id)">
+    <img [src]="show.image.medium" alt="Show Thumbnail" />
+  
+    <h2 class="name">{{ show.name }}</h2>
+  
+    <div class="row gap-05">
+      <span class="status-label">Status:</span>
+      <span class="status">{{ show.status }}</span>
+    </div>
+</div>

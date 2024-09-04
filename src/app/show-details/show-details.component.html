@@ -1,0 +1,22 @@
+<div class="wrapper" *ngIf="show">
+    <div class="show-wrapper">
+        <img [src]="show.image?.medium" alt="{{ show.name }}" class="show-image">
+        <div class="show-info">
+          <h1 class="show-name">{{ show.name }}</h1>
+          <div class="show-rating" *ngIf="show.rating?.average">
+            Rating: {{ show.rating.average }}
+          </div>
+        </div>
+      </div>
+      <div class="show-summary" [innerHTML]="show.summary"></div>
+
+    <h2>Episodes</h2>
+    <div class="column gap-1">
+        <div class="row wrap gap-2 space-between">
+          <app-episode-card
+          *ngFor="let episode of episodes"
+          [episode]="episode"
+          [showId]="showId">
+          </app-episode-card>
+    </div>
+</div>
