@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { Episode } from '../utils/episode.model';
 import { EpisodeCardComponent } from "../components/episode-card/episode-card.component";
+import { Actor } from '../utils/actor.model';
 
 @Component({
   selector: 'app-show',
@@ -18,6 +19,7 @@ export class ShowDetailsComponent {
   showId!: number;
 
   episodes: Episode[] = [];
+  cast: Actor[] = [];
 
   constructor(private tvmazeService: TvmazeApiService,
     private route: ActivatedRoute
@@ -30,6 +32,7 @@ export class ShowDetailsComponent {
       if (this.showId) {
         this.getShowDetailsById(this.showId);
         this.getEpisodesByShowId(this.showId);
+        this.getCastByShowId(this.showId);
       }
     });
   }
@@ -37,12 +40,20 @@ export class ShowDetailsComponent {
   getShowDetailsById(id: number): void {
     this.tvmazeService.getShowById(id).subscribe((data: Show) => {
       this.show = data;
+      console.log(this.show);
     });
   }
 
   getEpisodesByShowId(id: number): void {
     this.tvmazeService.getEpisodesByShowId(id).subscribe((data: any) => {
       this.episodes = data;
+    });
+  }
+
+  getCastByShowId(id: number): void {
+    this.tvmazeService.getCastByShowId(id).subscribe((data: any) => {
+      this.cast = data;
+      console.log(this.cast);
     });
   }
 

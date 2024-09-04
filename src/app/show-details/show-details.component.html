@@ -18,5 +18,15 @@
           [episode]="episode"
           [showId]="showId">
           </app-episode-card>
-    </div>
+        </div>
+
+    <h2>Cast</h2>
+    <div class="row wrap gap-2 space-between">
+        <div *ngFor="let actor of cast">
+            <span class="status-label">Name:</span>
+            <span class="status">{{ actor.person.name }}</span>
+            <span class="status-label">In the role of:</span>
+            <span class="status">{{ actor.character.name }}</span>
+        </div>
+  </div>
 </div>

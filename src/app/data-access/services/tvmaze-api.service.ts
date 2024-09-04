@@ -33,6 +33,11 @@ export class TvmazeApiService {
     return this.http.get<any[]>(url);
   }
 
+  getCastByShowId(id: number): Observable<any[]> {
+    const url = `${this.apiUrl}/shows/${id}/cast`;
+    return this.http.get<any[]>(url);
+  }
+
   getEpisodeByShowIdAndEpisodeNumberAndSeasonId(showId: number, season: number, number: number): Observable<Episode> {
     const url = `${this.apiUrl}/shows/${showId}/episodebynumber?season=${season}&number=${number}`;
     return this.http.get<Episode>(url);
